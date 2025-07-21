@@ -9,6 +9,6 @@ resources:
   - redis/service.yaml
   - kafka/deployment.yaml
   - kafka/kafka-ui-deployment.yaml
-  - kafka/services.yaml
+  - kafka/service.yaml
   - kafka/kafka-broker-pv.yaml
   - kafka/kafka-broker-pvc.yaml
