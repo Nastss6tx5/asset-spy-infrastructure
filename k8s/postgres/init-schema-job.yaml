@@ -1,0 +1,27 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: init-schema
+  namespace: asset-spy
+spec:
+  template:
+    spec:
+      restartPolicy: OnFailure
+      containers:
+        - name: init-db
+          image: postgres:latest
+          command: ["psql"]
+          args:
+            - -h
+            - postgres
+            - -U
+            - postgres
+            - -d
+            - asset_spy_db
+            - -c
+            - |
+              CREATE SCHEMA IF NOT EXISTS asset_spy_user_service_db;
+              CREATE SCHEMA IF NOT EXISTS asset_spy_products_service_db;
+          env:
+            - name: PGPASSWORD
+              value: "123"

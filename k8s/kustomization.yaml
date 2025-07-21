@@ -1,0 +1,14 @@
+resources:
+  - namespaces.yaml
+  - postgres/deployment.yaml
+  - postgres/service.yaml
+  - postgres/init-schema-job.yaml
+  - pgadmin/deployment.yaml
+  - pgadmin/service.yaml
+  - redis/deployment.yaml
+  - redis/service.yaml
+  - kafka/deployment.yaml
+  - kafka/kafka-ui-deployment.yaml
+  - kafka/services.yaml
+  - kafka/kafka-broker-pv.yaml
+  - kafka/kafka-broker-pvc.yaml
