@@ -1,0 +1,12 @@
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: asset-spy-tls
+  namespace: asset-spy
+spec:
+  secretName: asset-spy-tls
+  issuerRef:
+    name: letsencrypt-cert
+    kind: ClusterIssuer
+  dnsNames:
+    - asset-spy.online
