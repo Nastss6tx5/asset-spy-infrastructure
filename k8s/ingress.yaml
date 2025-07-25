@@ -18,21 +18,21 @@ spec:
       http:
         paths:
           - path: /auth-service(/|$)(.*)
-            pathType: Prefix
+            pathType: ImplementationSpecific
             backend:
               service:
                 name: auth-service
                 port:
                   number: 8080
           - path: /user-service(/|$)(.*)
-            pathType: Prefix
+            pathType: ImplementationSpecific
             backend:
               service:
                 name: user-service
                 port:
                   number: 8082
           - path: /products-service(/|$)(.*)
-            pathType: Prefix
+            pathType: ImplementationSpecific
             backend:
               service:
                 name: products-service
