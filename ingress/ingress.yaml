@@ -12,8 +12,35 @@ spec:
     - hosts:
         - asset-spy.online
       secretName: asset-spy-tls
+    - hosts:
+        - 77.110.126.88.sslip.io
+      secretName: sslip-tls
   rules:
     - host: asset-spy.online
+      http:
+        paths:
+          - path: /auth-service(/|$)(.*)
+            pathType: ImplementationSpecific
+            backend:
+              service:
+                name: auth-service
+                port:
+                  number: 8080
+          - path: /user-service(/|$)(.*)
+            pathType: ImplementationSpecific
+            backend:
+              service:
+                name: user-service
+                port:
+                  number: 8082
+          - path: /products-service(/|$)(.*)
+            pathType: ImplementationSpecific
+            backend:
+              service:
+                name: products-service
+                port:
+                  number: 8081
+    - host: 77.110.126.88.sslip.io
       http:
         paths:
           - path: /auth-service(/|$)(.*)
