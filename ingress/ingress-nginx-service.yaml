@@ -16,9 +16,7 @@ spec:
       protocol: TCP
       port: 80
       targetPort: http
-      nodePort: 31376
     - name: https
       protocol: TCP
       port: 443
       targetPort: https
-      nodePort: 32179
