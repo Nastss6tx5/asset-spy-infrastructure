@@ -39,7 +39,7 @@ spec:
             - name: JENKINS_OPTS
               value: --webroot=/var/jenkins_home/war
             - name: JENKINS_JAVA_OPTIONS
-              value: "-Xms256m -Xmx512m -XX:+UseContainerSupport"
+              value: "-Xms512m -Xmx768m -XX:+UseContainerSupport"
           ports:
             - containerPort: 8080
               name: http
@@ -52,11 +52,11 @@ spec:
               name: jenkins-home
           resources:
             requests:
-              cpu: "100m"
-              memory: "256Mi"
-            limits:
-              cpu: "500m"
+              cpu: "300m"
               memory: "512Mi"
+            limits:
+              cpu: "800m"
+              memory: "1Gi"
           livenessProbe:
             httpGet:
               path: /login
@@ -89,10 +89,10 @@ spec:
           resources:
             requests:
               cpu: "100m"
-              memory: "256Mi"
+              memory: "192Mi"
             limits:
-              cpu: "500m"
-              memory: "512Mi"
+              cpu: "400m"
+              memory: "384Mi"
           volumeMounts:
             - name: dind-storage
               mountPath: /var/lib/docker
