@@ -40,6 +40,27 @@ spec:
                 name: products-service
                 port:
                   number: 8081
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: jenkins
+                port:
+                  number: 8080
+          - path: /statistics-service(/|$)(.*)
+            pathType: ImplementationSpecific
+            backend:
+              service:
+                name: statistics-service
+                port:
+                  number: 8089
+          - path: /rfid-emu-service(/|$)(.*)
+            pathType: ImplementationSpecific
+            backend:
+              service:
+                name: rfid-emu-service
+                port:
+                  number: 8083
     - host: 77.110.126.88.sslip.io
       http:
         paths:
@@ -64,3 +85,24 @@ spec:
                 name: products-service
                 port:
                   number: 8081
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: jenkins
+                port:
+                  number: 8080
+          - path: /statistics-service(/|$)(.*)
+            pathType: ImplementationSpecific
+            backend:
+              service:
+                name: statistics-service
+                port:
+                  number: 8089
+          - path: /rfid-emu-service(/|$)(.*)
+            pathType: ImplementationSpecific
+            backend:
+              service:
+                name: rfid-emu-service
+                port:
+                  number: 8083
