@@ -12,8 +12,19 @@ data:
         type: jaeger
         access: proxy
         url: http://jaeger:16686/jaeger
-        isDefault: true
+        isDefault: false
         jsonData:
           nodeGraph:
             enabled: true
           httpMethod: GET
+  prometheus.yaml: |
+    apiVersion: 1
+    datasources:
+      - name: Prometheus
+        uid: prometheus
+        type: prometheus
+        access: proxy
+        url: http://prometheus.observability.svc.cluster.local:9090
+        isDefault: true
+        jsonData:
+          timeInterval: 60s
